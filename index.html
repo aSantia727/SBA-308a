@@ -1,35 +1,55 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>SBA-308a</title>
-</head>
+    <link rel="stylesheet" href="styles.css"> </head>
 <body>
     <div id="frame">
         <div id="left">
-            <img class= "light" src="media/postLight.gif" alt="">
+            <img class="light" src="media/postLight.gif" alt="">
         </div>
-
         <div id="center">
             <div id="title">
                 <img id="mtg" src="media/Magic-The-Gathering-Random-Ca-10-25-2024.png" alt="">
             </div>
             <div id="command">
-                <button id="summon">RNG</button>
+                <div class="commandSide">
+                    <p>Press</p>
+                    <p>Start</p>
+                </div>
+                <div id="commandMid">
+                    <button id="randomCardButton">START</button>
+                </div>
+                <div class="commandSide">
+                    <p>Press</p>
+                    <p>Start</p>
+                </div>
             </div>
-            <div id="portal">
-                <img src="media/portal.gif" id="background-gif" alt="Background GIF">
+            <div id="cardInfoDiv">
+                <div id="portal">
+                    <img src="media/portal.gif" id="background-gif" alt="Background GIF">
+                    <div id="cardName"></div>
+                    <div id="cardImage"></div>
+                    <div id="cardText"></div> 
+                </div>
             </div>
-
         </div>
-
         <div id="right">
-            <img class= "light" src="media/postLight.gif" alt="">
+            <img class="light" src="media/postLight.gif" alt="">
         </div>
     </div>
+    <script type="module">
+        import { fetchAndDisplayCard } from './main.js'; 
 
-<script type="text/javascript" src="main.js"></script>
+        // Call the imported function when the button is clicked
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const button = document.getElementById('randomCardButton');
+            button.addEventListener('click', fetchAndDisplayCard); 
+        });
+    </script>
 </body>
 </html>
